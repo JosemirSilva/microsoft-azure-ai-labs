@@ -2,12 +2,12 @@
 
 Repositório único para os projetos práticos da trilha **[Microsoft - Fundamentos de IA](https://web.dio.me/track/microsoft-fundamentos-de-ia)** na [Digital Innovation One (DIO)](https://www.dio.me/). Cada módulo do curso corresponde a uma **subpasta em `labs/`** — um só GitHub, histórico e portfólio centralizados.
 
-## Progresso na trilha (1/5)
+## Progresso na trilha
 
-| # | Projeto (DIO) | Pasta sugerida | Estado |
-|---|---------------|----------------|--------|
+| # | Projeto (DIO) | Pasta | Estado |
+|---|---------------|-------|--------|
 | 1 | [Trabalhando com Machine Learning na Prática no Azure ML](labs/azure-ml-automl-endpoint/README.md) | [`labs/azure-ml-automl-endpoint/`](labs/azure-ml-automl-endpoint/) | **Concluído** |
-| 2 | Reconhecimento Facial e transformação de imagens em Dados no Azure ML | _a criar_ (ex.: `labs/azure-ml-face-images/`) | Não iniciado |
+| 2 | [Reconhecimento facial e imagens como dados (Vision Studio)](labs/azure-ml-face-images/README.md) | [`labs/azure-ml-face-images/`](labs/azure-ml-face-images/) | **Concluído** |
 | 3 | Análise de Sentimentos com Language Studio no Azure AI | _a criar_ | Não iniciado |
 | 4 | Azure Cognitive Search: Utilizando AI Search para indexação e consulta de Dados | _a criar_ | Não iniciado |
 | 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | _a criar_ | Não iniciado |
@@ -24,19 +24,19 @@ microsoft-ai-fundamentals/
 ├── docs/
 │   └── architecture.md       ← referência (ex.: projeto 1)
 └── labs/
-    └── azure-ml-automl-endpoint/   ← projeto 1 — AutoML + Online Endpoint
+    ├── azure-ml-automl-endpoint/   ← projeto 1 — AutoML + Online Endpoint
+    │   ├── README.md, SDD.md, HOWTO.md, endpoint.json, …
+    └── azure-ml-face-images/       ← projeto 2 — Vision Studio (inputs / output)
         ├── README.md
-        ├── SDD.md
-        ├── endpoint.json         ← metadados públicos do endpoint (sem chaves)
-        ├── sample-request.json
-        ├── data/
-        ├── scripts/
+        ├── inputs/
+        ├── output/
         └── assets/screenshots/
 ```
 
-## Entrega DIO (projeto 1)
+## Entrega DIO
 
-Conforme as instruções do curso: repositório no GitHub com **README** explicando o passo a passo e **ficheiro JSON do endpoint** — ver [`labs/azure-ml-automl-endpoint/endpoint.json`](labs/azure-ml-automl-endpoint/endpoint.json) e o [README do lab](labs/azure-ml-automl-endpoint/README.md).
+- **Projeto 1:** README + [`endpoint.json`](labs/azure-ml-automl-endpoint/endpoint.json) — ver [lab 1](labs/azure-ml-automl-endpoint/README.md).
+- **Projeto 2:** pastas **`inputs`** e **`output`**, **README** com processo e insights — ver [lab 2](labs/azure-ml-face-images/README.md).
 
 ## Publicar no GitHub (resumo)
 
@@ -62,6 +62,5 @@ Conforme as instruções do curso: repositório no GitHub com **README** explica
 
 ## Documentação por lab
 
-- [Lab 1 — Automated ML + Online Endpoint (README completo)](labs/azure-ml-automl-endpoint/README.md)
-- [Lab 1 — HOWTO (passo a passo e recursos)](labs/azure-ml-automl-endpoint/HOWTO.md)
-- [Lab 1 — Solution Design Document (SDD)](labs/azure-ml-automl-endpoint/SDD.md)
+- [Lab 1 — Automated ML + Online Endpoint](labs/azure-ml-automl-endpoint/README.md) · [HOWTO](labs/azure-ml-automl-endpoint/HOWTO.md) · [SDD](labs/azure-ml-automl-endpoint/SDD.md)
+- [Lab 2 — Vision Studio (facial / OCR / análise)](labs/azure-ml-face-images/README.md) · [HOWTO passo a passo](labs/azure-ml-face-images/HOWTO.md)

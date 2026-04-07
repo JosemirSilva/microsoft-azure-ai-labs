@@ -1,0 +1,6 @@
+{
+  "api_version": "2023-10-01",
+  "endpoint_name": "mlw-dio-aif-dev-centralus-rssjr",
+  "deployment_name": "churn-xgboost-automl-1",
+  "scoring_uri": "https://mlw-dio-aif-dev-centralus-rssjr.centralus.inference.ml.azure.com/score"
+}

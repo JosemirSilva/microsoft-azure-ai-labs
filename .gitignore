@@ -1,0 +1,28 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python (optional, if you add SDK notebooks later)
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+*.egg-info/
+
+# Azure / local tooling
+.azure/

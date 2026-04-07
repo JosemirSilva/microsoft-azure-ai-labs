@@ -1,0 +1,15 @@
+{
+  "input_data": {
+    "columns": [
+      "age",
+      "income",
+      "credit_score",
+      "has_credit_card",
+      "num_products",
+      "is_active_member"
+    ],
+    "data": [
+      [45, 55000.0, 680, 1, 3, 1]
+    ]
+  }
+}

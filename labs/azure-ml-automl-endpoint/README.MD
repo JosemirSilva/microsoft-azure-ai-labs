@@ -73,7 +73,7 @@ Instruções típicas do curso: **repositório GitHub** com **README** (passo a 
 - Opcional na entrega: link do repositório raiz que contém `labs/azure-ml-automl-endpoint/`
 - Evidências em `assets/screenshots/` (incluindo **resource group** em `portal/`).
 
-**Não incluir:** chaves primárias/secundárias do endpoint em ficheiros versionados.
+**Não incluir:** chaves primárias/secundárias do endpoint em arquivos versionados.
 
 ## Dataset
 
@@ -116,7 +116,7 @@ cd labs\azure-ml-automl-endpoint\scripts
 
 ## Evidências em `assets/screenshots/`
 
-| Ficheiro | Conteúdo |
+| Arquivo | Conteúdo |
 |----------|----------|
 | `01-workspace-overview.png` | Portal — workspace |
 | `studio/01-home-dashboard.png` | Studio — home |
@@ -126,7 +126,7 @@ cd labs\azure-ml-automl-endpoint\scripts
 | `10-teste-inferencia.png` | Tab **Test** com sucesso |
 | `portal/01-resource-group-all-resources.png` | Portal — todos os recursos do RG do lab |
 
-Subpastas `workspace/`, `compute/`: capturas extras. Podes adicionar `04`–`09` (AutoML, modelo, endpoint) quando organizares o portfólio.
+Subpastas `workspace/`, `compute/`: capturas extras. Você pode adicionar `04`–`09` (AutoML, modelo, endpoint) ao organizar o portfólio.
 
 ### Organização das pastas de imagens
 
@@ -160,7 +160,7 @@ Subpastas `workspace/`, `compute/`: capturas extras. Podes adicionar `04`–`09`
 
 Execute na pasta raiz do repositório (`microsoft-ai-fundamentals`), no **PowerShell** ou **Git Bash**, substituindo `SEU_USUARIO` e `SEU_REPOSITORIO` pelos valores reais.
 
-1. **Criar o repositório no GitHub** (site [github.com/new](https://github.com/new)): nome à tua escolha; **público** recomendado para portfólio; **não** marques “Add a README” se já tens ficheiros locais (evita conflito no primeiro push).
+1. **Criar o repositório no GitHub** (site [github.com/new](https://github.com/new)): nome de sua escolha; **público** recomendado para portfólio; **não** marques “Add a README” se já tem arquivos locais (evita conflito no primeiro push).
 
 2. **Verificar que não há segredos** (revisão rápida):
 
@@ -169,7 +169,7 @@ Execute na pasta raiz do repositório (`microsoft-ai-fundamentals`), no **PowerS
    Get-ChildItem -Recurse -Include *.md,*.json,*.ps1,*.env -File | Select-String -Pattern "api[_-]?key|secret|password|Bearer sk-|BEGIN PRIVATE" -SimpleMatch -ErrorAction SilentlyContinue
    ```
 
-   Confirma manualmente que `endpoint.json` **não** contém chaves (só URI e nomes).
+   Confira manualmente que `endpoint.json` **não** contém chaves (só URI e nomes).
 
 3. **Inicializar Git e primeiro commit** (se ainda não existir `.git`):
 
@@ -196,4 +196,4 @@ Execute na pasta raiz do repositório (`microsoft-ai-fundamentals`), no **PowerS
 
    `https://github.com/SEU_USUARIO/SEU_REPOSITORIO`
 
-   Opcional: na descrição, indica que o lab está em `labs/azure-ml-automl-endpoint/` e que o JSON do endpoint é `labs/azure-ml-automl-endpoint/endpoint.json`.
+   Opcional: na descrição, indique que o lab está em `labs/azure-ml-automl-endpoint/` e que o JSON do endpoint é `labs/azure-ml-automl-endpoint/endpoint.json`.

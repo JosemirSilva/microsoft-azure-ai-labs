@@ -1,6 +1,6 @@
 # Arquitetura — Azure ML (AutoML + Online Endpoint)
 
-Visão de alto nível do fluxo implementado neste lab. Atualize os nomes de recursos quando documentar o seu workspace.
+Visão de alto nível do fluxo implementado neste lab. Ao documentar o seu workspace, atualize os nomes dos recursos conforme o ambiente real.
 
 ```mermaid
 flowchart LR
@@ -29,4 +29,4 @@ flowchart LR
 | Model registry | Armazena o artefato do melhor run com versionamento. |
 | Online endpoint | Hospeda o modelo para inferência síncrona via REST. |
 
-Para detalhes de design e decisões do seu run, consulte o [SDD do lab](../labs/azure-ml-automl-endpoint/SDD.md). Lista de recursos no **resource group** (captura de ecrã): secção **Recursos Azure no resource group** no [README do lab](../labs/azure-ml-automl-endpoint/README.md).
+Para detalhes de design e decisões do seu run, consulte o [SDD do lab](../labs/azure-ml-automl-endpoint/SDD.md). Lista de recursos no **resource group** (captura de tela): seção **Recursos Azure no resource group** no [README do lab](../labs/azure-ml-automl-endpoint/README.md).

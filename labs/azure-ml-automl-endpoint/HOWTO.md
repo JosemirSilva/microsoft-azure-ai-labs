@@ -20,7 +20,7 @@ Estes componentes aparecem no **resource group** do projeto (ex.: `rg-dio-aif-ml
 |---------|----------------------------|--------|
 | **Resource group** | `rg-dio-aif-ml-dev-centralus` | Agrupa todos os recursos na região. |
 | **Machine Learning workspace** | `mlw-dio-aif-dev-centralus-01` | Ponto central: dados, jobs, modelos, endpoints. |
-| **Storage account** | `stdioaifmlcentralus01` | Blob default (`workspaceblobstore`), ficheiros e artefatos. |
+| **Storage account** | `stdioaifmlcentralus01` | Blob default (`workspaceblobstore`), arquivos e artefatos. |
 | **Key Vault** | `kv-dio-aif-dev-centralus` | Segredos do ecossistema do workspace (políticas de acesso definem o que vês no Portal). |
 | **Application Insights** | `appi-dio-aif-ml-dev-centralus-01` | Telemetria associada ao workspace. |
 | **Log Analytics** | *(workspace criado com o AML)* | Logs operacionais em alguns cenários. |
@@ -50,7 +50,7 @@ Estes componentes aparecem no **resource group** do projeto (ex.: `rg-dio-aif-ml
 ### Fase B — Dados
 
 4. Preparar CSV com cabeçalho e coluna alvo (`churn` para classificação binária).
-5. No Studio: **Data** → **Create** → definir tipo **Tabular** (dataset v1 API) / fluxo que **inferes colunas** a partir do ficheiro delimitado (vírgula, UTF-8).
+5. No Studio: **Data** → **Create** → definir tipo **Tabular** (dataset v1 API) / fluxo que **infere colunas** a partir do arquivo delimitado (vírgula, UTF-8).
 6. Concluir o assistente (**Schema**, **Review**) e criar o asset (ex.: **`ds-automl-classification-v2`**).
 7. **Evitar** depender apenas de **File (uri_file)** se o AutoML não listar **Target column** — foi o caso do primeiro asset `v1`; o `v2` tabular resolveu.
 

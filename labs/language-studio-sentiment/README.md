@@ -4,14 +4,14 @@
 
 **Projeto 3/5** da trilha [Microsoft — Fundamentos de IA](https://web.dio.me/track/microsoft-fundamentos-de-ia) · Desafio DIO: [Análise de sentimentos com Language Studio no Azure AI](https://web.dio.me/lab/analise-de-sentimentos-com-language-studio-no-azure-ai/learning/f6884c74-e7aa-4700-a84b-a3446e0b6d8d?back=/track/microsoft-fundamentos-de-ia).
 
-> O desafio abrange **Azure Speech Studio** e **Language Studio**, com foco em **voz** e **linguagem natural**. Este lab documenta sobretudo a parte de **análise de sentimentos** no **Language Studio**; podes estender o repositório com notas ou evidências de **Speech Studio** quando seguires as video-aulas.
+> O desafio abrange **Azure Speech Studio** e **Language Studio**, com foco em **voz** e **linguagem natural**. Este lab documenta sobretudo a parte de **análise de sentimentos** no **Language Studio**; você pode estender o repositório com notas ou evidências de **Speech Studio** ao seguir as video-aulas.
 
 Repositório monorepo: [README da trilha](../../README.md).
 
 **Guias**
 
 - [HOWTO.md](./HOWTO.md) — visão técnica por fases (referência rápida).
-- **[GUIA-PASSO-A-PASSO-TELA.md](./GUIA-PASSO-A-PASSO-TELA.md)** — roteiro **manual ecrã a ecrã** (Language Studio, testes PT, capturas, Speech opcional).
+- **[GUIA-PASSO-A-PASSO-TELA.md](./GUIA-PASSO-A-PASSO-TELA.md)** — roteiro **manual tela a tela** (Language Studio, testes PT, capturas, Speech opcional).
 
 ---
 
@@ -27,9 +27,9 @@ Conforme o enunciado:
 
 | Requisito | Como cumprir neste repo |
 |-----------|-------------------------|
-| Repositório público com **README detalhado** | Este ficheiro + [HOWTO.md](./HOWTO.md) |
-| Ficheiros relevantes à experiência | Pasta [`output/`](./output/) (prints, JSON opcional) |
-| Opcional: capturas em **`/images`** | A DIO sugere `/images`; aqui usamos **`output/`** (mesmo papel — organização clara); podes duplicar em `assets/screenshots/` se preferires |
+| Repositório público com **README detalhado** | Este arquivo + [HOWTO.md](./HOWTO.md) |
+| Arquivos relevantes à experiência | Pasta [`output/`](./output/) (prints, JSON opcional) |
+| Opcional: capturas em **`/images`** | A DIO sugere `/images`; aqui usamos **`output/`** (mesmo papel — organização clara); você pode duplicar em `assets/screenshots/` se preferir |
 | Entregar link + descrição | Botão **Entregar projeto** na plataforma DIO |
 
 **Recursos oficiais (Microsoft Learn):**
@@ -41,7 +41,7 @@ Conforme o enunciado:
 
 ## Pré-requisitos
 
-- Conta **Microsoft Azure** (pode reutilizar a subscrição dos Labs 1 e 2).
+- Conta **Microsoft Azure** (pode reutilizar a assinatura dos Labs 1 e 2).
 - Permissão para criar um recurso **Azure AI Language** ou recurso multi-serviço **Azure AI services** / **Cognitive Services** com capacidades de **análise de texto**, conforme o assistente do portal nas aulas.
 - Navegador atualizado; acesso ao **[Language Studio](https://language.cognitive.azure.com/)** (início de sessão com a conta Azure).
 
@@ -51,26 +51,26 @@ Conforme o enunciado:
 
 ## Passo a passo resumido (o que fazer)
 
-1. **Criar recurso** no Azure compatível com **Language** / análise de texto (nome, resource group, região, escalão — ver [HOWTO.md](./HOWTO.md)).
-2. Abrir o **[Language Studio](https://language.cognitive.azure.com/)**, associar **subscrição** e **recurso**; aceitar termos se solicitado.
-3. Abrir a área de **análise de texto** / **sentiment** (nome exato varia com a versão do produto — sigas as aulas DIO).
+1. **Criar recurso** no Azure compatível com **Language** / análise de texto (nome, resource group, região, camada de preços — ver [HOWTO.md](./HOWTO.md)).
+2. Abrir o **[Language Studio](https://language.cognitive.azure.com/)**, associar **assinatura** e **recurso**; aceitar termos se solicitado.
+3. Abrir a área de **análise de texto** / **sentiment** (nome exato varia com a versão do produto — siga as aulas DIO).
 4. Testar **várias frases em português**:
    - tom **positivo** (ex.: elogio, satisfação);
    - tom **negativo** (ex.: reclamação, frustração);
-   - tom **neutro** (ex.: facto objetivo, sem carga emocional forte).
+   - tom **neutro** (ex.: fato objetivo, sem carga emocional forte).
 5. Opcional: exemplo **misto** (texto com mais do que uma frase e polaridades diferentes) — ver nomes sugeridos em [`output/README.md`](./output/README.md).
-6. Guardar **capturas de ecrã** e/ou **JSON** exportado em [`output/`](./output/) com os nomes acordados na tabela abaixo.
-7. Preencher neste README a secção **Insights** com conclusões reais (limiar de confiança, idioma, limitações).
+6. Guardar **capturas de tela** e/ou **JSON** exportado em [`output/`](./output/) com os nomes acordados na tabela abaixo.
+7. Preencher neste README a seção **Insights** com conclusões reais (limiar de confiança, idioma, limitações).
 8. `git add` / `commit` / `push` a partir da **raiz** do repositório; entregar o link na DIO.
 
 ---
 
 ## Evidências em `output/`
 
-| Ficheiro | Conteúdo | Estado |
+| Arquivo | Conteúdo | Estado |
 |----------|----------|--------|
 | [`resource-group-resources-language-listed.png`](./output/resource-group-resources-language-listed.png) | Portal Azure — resource group **`rg-dio-aif-ml-dev-centralus`**, separador **Recursos**, recurso **Language** `ai-dio-language-dev-centralus` visível na lista. | Guardado |
-| [`resource-language-overview.png`](./output/resource-language-overview.png) | Portal Azure — **Descrição geral** do recurso `ai-dio-language-dev-centralus` (tipo Language, **TextAnalytics**, escalão Free, endpoint público). | Guardado |
+| [`resource-language-overview.png`](./output/resource-language-overview.png) | Portal Azure — **Descrição geral** do recurso `ai-dio-language-dev-centralus` (tipo Language, **TextAnalytics**, camada Free, endpoint público). | Guardado |
 | [`sentiment-opinion-mining-01-config-run.png`](./output/sentiment-opinion-mining-01-config-run.png) | **1/3** — *Sentiment and opinion mining tryout*: configuração (PT-BR, recurso **F0**, texto Bootcamp DIO/Azure, **Opinion mining** ON). | Guardado |
 | [`sentiment-opinion-mining-02-results.png`](./output/sentiment-opinion-mining-02-results.png) | **2/3** — separador **Result**: **Document sentiment** (positivo, 99%), **Sentence 1** com *target* "experiência" e *assessment* "incrível", métricas de opinião. | Guardado |
 | [`sentiment-opinion-mining-03-results-multiple-sentences.png`](./output/sentiment-opinion-mining-03-results-multiple-sentences.png) | **3/3** — mesma análise: vista com **várias frases** / expansão (ex. frase neutra com scores, mais anotações no texto). | Guardado |
@@ -85,7 +85,7 @@ Lista detalhada e convenções: [`output/README.md`](./output/README.md).
 
 ### Frases de exemplo (português) — pode ajustar
 
-Use como ponto de partida; escreva as tuas variantes nas aulas.
+Use como ponto de partida; escreva suas variantes nas aulas.
 
 | Polaridade | Exemplo de frase |
 |------------|------------------|
@@ -116,7 +116,7 @@ Use como ponto de partida; escreva as tuas variantes nas aulas.
 
 - **Análise por frase:** em textos com múltiplas sentenças, cada frase recebe seu próprio score independente, permitindo detectar polaridades mistas dentro do mesmo documento.
 
-- **Escalão Free (F0):** suficiente para prototipagem e labs; para produção com volume alto, avaliar o tier S com SLA garantido.
+- **Camada gratuita (F0):** suficiente para prototipagem e labs; para produção com volume alto, avaliar o tier S com SLA garantido.
 
 ### Limitações identificadas
 
@@ -154,4 +154,4 @@ git commit -m "feat(lab3): Language Studio — análise de sentimentos (docs e e
 git push origin main
 ```
 
-*(Ajusta o nome do ramo se não for `main`.)*
+*(Ajuste o nome do ramo se não for `main`.)*

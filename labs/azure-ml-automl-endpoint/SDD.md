@@ -34,7 +34,7 @@ Evidência (portfólio): [assets/screenshots/01-workspace-overview.png](./assets
 ## 3. Dataset
 
 - **Origem (repositório):** [data/customer_churn.csv](./data/customer_churn.csv) — CSV sintético, vírgula, sem dados pessoais.
-- **Origem (Azure ML — utilizado no AutoML):** **`ds-automl-classification-v2`**, **versão 1**, tipo **Table (mltable)** com dataset v1 API **Tabular**; ficheiro `customer_churn.csv` no **workspaceblobstore**. Descrição: *Lab ML DIO*.
+- **Origem (Azure ML — utilizado no AutoML):** **`ds-automl-classification-v2`**, **versão 1**, tipo **Table (mltable)** com dataset v1 API **Tabular**; arquivo `customer_churn.csv` no **workspaceblobstore**. Descrição: *Lab ML DIO*.
 - **Nota:** Foi criado primeiro `ds-automl-classification-v1` (File); o preview falhou para AutoML; a solução foi registar **v2** como tabular com schema inferido.
 - **Tipo de problema:** classificação binária.
 - **Variável alvo:** `churn` (0 ou 1).

@@ -19,7 +19,7 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 
 ### 1.1. Grupo de recursos
 
-1. Entre no [Portal Azure](https://portal.azure.com) com a mesma conta/subscrição que usou no Lab 1 (se aplicável).
+1. Entre no [Portal Azure](https://portal.azure.com) com a mesma conta/assinatura que usou no Lab 1 (se aplicável).
 2. Opcional: reutilize o **resource group** do Lab 1 ou crie um novo dedicado a IA (ex. `rg-dio-aif-vision-<região>`).
 
 ### 1.2. Criar o recurso de serviços de IA
@@ -27,11 +27,11 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 1. **Criar um recurso** → pesquise por **Azure AI services** ou **Cognitive Services** (recurso multi-serviço que agrupa capacidades de visão).
 2. Selecione **Azure AI services** (ou equivalente multi-serviço indicado pela Microsoft para Vision).
 3. Preencha:
-   - **Subscrição** e **resource group**
-   - **Região:** escolha uma região onde os serviços de visão estejam disponíveis (e alinhada com políticas de **Face API**, se for usar deteção de rostos — consulte [documentação Face](https://learn.microsoft.com/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview) e restrições da sua subscrição).
+   - **Assinatura** e **resource group**
+   - **Região:** escolha uma região onde os serviços de visão estejam disponíveis (e alinhada com políticas de **Face API**, se for usar detecção de rostos — consulte [documentação Face](https://learn.microsoft.com/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview) e restrições da sua assinatura).
    - **Nome** único do recurso.
-   - **Escalão de preços:** para estudo, use o escalão **gratuito (F0)** se existir e couber na quota; caso contrário, **S0** (pago ao consumo — mantenha o lab curto e apague o recurso depois se quiser evitar custos).
-4. **Rever + criar** → **Criar** e aguarde a implementação.
+   - **Camada de preços:** para estudo, use a camada **gratuita (F0)** se existir e couber na quota; caso contrário, **S0** (pago ao consumo — mantenha o lab curto e apague o recurso depois se quiser evitar custos).
+4. **Rever + criar** → **Criar** e aguarde a implantação.
 
 ### 1.3. Confirmar o recurso (sem expor segredos)
 
@@ -42,32 +42,32 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 ### 1.4. Custos e limpeza
 
 - Após o lab, pode **eliminar o resource group** de teste ou apenas o recurso de IA se já não precisar.
-- Revise **Cost Management** na subscrição se usou escalão pago.
+- Revise **Cost Management** na assinatura se usou camada paga.
 
 ---
 
 ## Fase 2 — Primeiro acesso ao Vision Studio
 
 1. Abra [https://portal.vision.cognitive.azure.com/](https://portal.vision.cognitive.azure.com/).
-2. Inicie sessão com a conta Azure associada à subscrição do recurso.
-3. Quando pedido, **selecione a subscrição** e o **recurso** que criou na Fase 1.
+2. Inicie sessão com a conta Azure associada à assinatura do recurso.
+3. Quando pedido, **selecione a assinatura** e o **recurso** que criou na Fase 1.
 4. Aceite termos / confirmações se aparecerem (leia o resumo; é um ambiente de demonstração ligado ao seu recurso).
 
 **Evidência sugerida:** print da página inicial do Vision Studio **com o recurso já selecionado** (sem dados sensíveis) → `assets/screenshots/02-vision-studio-inicio.png`.
 
 ---
 
-## Fase 3 — “Detect faces” (deteção de rostos)
+## Fase 3 — “Detect faces” (detecção de rostos)
 
-1. No Vision Studio, abra a funcionalidade **Face** / **Detect faces** (nome pode ser “Detetar rostos” ou similar conforme idioma).
+1. No Vision Studio, abra a funcionalidade **Face** / **Detect faces** (nome pode ser “Detectar rostos” ou similar conforme idioma).
 2. Carregue uma imagem de [`inputs/`](./inputs/) com rostos visíveis (ex.: equipa com várias pessoas ou uma imagem “difícil” com rede à frente).
 3. Observe:
-   - número de rostos detetados
+   - número de rostos detectados
    - caixas (bounding boxes) nos rostos
    - atributos disponíveis na sua versão (idade estimada, máscara, etc., conforme política e região)
 4. **Evidências**
-   - Captura de ecrã com o resultado na interface → `assets/screenshots/03-detect-faces-<nome-curto>.png`.
-   - Em [`output/`](./output/): se puder copiar texto/JSON da análise, guarde como `faces_<nome-do-ficheiro-original>.txt` (ou `.json`). Se não houver export, indique no `README.md` que o resultado está **só** no print (válido para a DIO desde que fique claro).
+   - Captura de tela com o resultado na interface → `assets/screenshots/03-detect-faces-<nome-curto>.png`.
+   - Em [`output/`](./output/): se puder copiar texto/JSON da análise, guarde como `faces_<nome-do-arquivo-original>.txt` (ou `.json`). Se não houver export, indique no `README.md` que o resultado está **só** no print (válido para a DIO desde que fique claro).
 
 ---
 
@@ -78,7 +78,7 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 3. Confira linhas, palavras e confiança (se mostrada).
 4. **Evidências**
    - Print → `assets/screenshots/04-read-ocr-<nome-curto>.png`.
-   - Em `output/`: ficheiro **`ocr_<nome>.txt`** (copiar o texto reconhecido) ou resumo em Markdown. Este passo cobre explicitamente o pedido da DIO sobre **resultados de reconhecimento de texto**.
+   - Em `output/`: arquivo **`ocr_<nome>.txt`** (copiar o texto reconhecido) ou resumo em Markdown. Este passo cobre explicitamente o pedido da DIO sobre **resultados de reconhecimento de texto**.
 
 ---
 
@@ -100,13 +100,13 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 | Local | Conteúdo |
 |--------|-----------|
 | [`inputs/`](./inputs/) | Imagens usadas (já com nota de direitos em `inputs/README.md`). |
-| [`output/`](./output/) | Pelo menos **OCR** em ficheiro de texto (e opcionalmente resumos de faces/análise). |
+| [`output/`](./output/) | Pelo menos **OCR** em arquivo de texto (e opcionalmente resumos de faces/análise). |
 | [`assets/screenshots/`](./assets/screenshots/) | Prints **sem chaves** cobrindo recurso (opcional), Vision Studio, Face, Read, Analyze. |
-| [`README.md`](./README.md) | Processo em palavras suas + secção **Insights** preenchida + referências às imagens (`![](./assets/screenshots/...)`). |
+| [`README.md`](./README.md) | Processo em palavras suas + seção **Insights** preenchida + referências às imagens (`![](./assets/screenshots/...)`). |
 
 ### 6.2. Como referenciar prints no README
 
-Exemplo (ajuste os nomes dos ficheiros):
+Exemplo (ajuste os nomes dos arquivos):
 
 ```markdown
 ### Evidências
@@ -121,7 +121,7 @@ Exemplo (ajuste os nomes dos ficheiros):
 
 ```bash
 git add labs/azure-ml-face-images/
-git status   # confirme que não há .env nem ficheiros com chaves
+git status   # confirme que não há .env nem arquivos com chaves
 git commit -m "Lab 2: Vision Studio — inputs, output de OCR e evidências"
 git push
 ```
@@ -139,9 +139,9 @@ git push
 
 | Sintoma | O que fazer |
 |---------|-------------|
-| Não consigo selecionar o recurso no Vision Studio | Confirme que o recurso está **implementado**, na mesma subscrição, e que tem permissões de **Leitor** ou superior. |
+| Não consigo selecionar o recurso no Vision Studio | Confirme que o recurso está **provisionado**, na mesma assinatura, e que tem permissões de **Leitor** ou superior. |
 | Face não disponível ou erro de política/região | Verifique [disponibilidade e requisitos da Face API](https://learn.microsoft.com/azure/ai-services/computer-vision/overview-identity); mude de região ou tipo de recurso conforme documentação atual. |
-| OCR falha ou texto incompleto | Use imagem com maior resolução ou contraste; texto muito oblíque ou cortado piora o resultado (bom para mencionar nos **insights**). |
+| OCR falha ou texto incompleto | Use imagem com maior resolução ou contraste; texto muito oblíquo ou cortado piora o resultado (bom para mencionar nos **insights**). |
 | WebP não carrega | Converta para **JPEG** ou **PNG** e volte a testar. |
 
 ---

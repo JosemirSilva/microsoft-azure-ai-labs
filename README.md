@@ -37,11 +37,11 @@ microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-lab
 
 - **Projeto 1:** README + [`endpoint.json`](labs/azure-ml-automl-endpoint/endpoint.json) — ver [lab 1](labs/azure-ml-automl-endpoint/README.md).
 - **Projeto 2:** pastas **`inputs`** e **`output`**, **README** — ver [lab 2](labs/azure-ml-face-images/README.md).
-- **Projeto 3:** **README** detalhado + artefactos (ex. **`output/`** com capturas) — ver [lab 3](labs/language-studio-sentiment/README.md).
+- **Projeto 3:** **README** detalhado + artefatos (ex. **`output/`** com capturas) — ver [lab 3](labs/language-studio-sentiment/README.md).
 
 ## Publicar no GitHub (resumo)
 
-1. Cria um repositório **vazio** no GitHub (sem README se vais fazer push de um projeto já local).
+1. Crie um repositório **vazio** no GitHub (sem README se for fazer push de um projeto já local).
 2. Na pasta do projeto, se ainda não for um repo Git:
 
    ```powershell
@@ -54,7 +54,7 @@ microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-lab
    git push -u origin main
    ```
 
-3. Confirma no GitHub que nenhum ficheiro contém **chaves** (revisa `endpoint.json`, `*.md`, scripts).
+3. Confira no GitHub que nenhum arquivo contém **chaves** (revise `endpoint.json`, `*.md`, scripts).
 
 ## Requisitos e segurança
 

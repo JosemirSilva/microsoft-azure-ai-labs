@@ -1,10 +1,10 @@
 # output
 
-Capturas de ecrã, exports **JSON** (opcional) e outros artefactos da prática no **Language Studio** (e opcionalmente **Speech Studio**).
+Capturas de tela, exports **JSON** (opcional) e outros artefatos da prática no **Language Studio** (e opcionalmente **Speech Studio**).
 
 ## Convenção de nomes sugerida
 
-| Ficheiro | Uso |
+| Arquivo | Uso |
 |----------|-----|
 | `resource-group-resources-language-listed.png` | **Resource group** — lista de recursos com **Language** `ai-dio-language-dev-centralus` (evidência de provisionamento no RG). |
 | `resource-language-overview.png` | **Descrição geral** do recurso Language (API kind **TextAnalytics**, localização, endpoint — sem painel de chaves). |
@@ -18,10 +18,10 @@ Capturas de ecrã, exports **JSON** (opcional) e outros artefactos da prática n
 | `sentiment-mixed.png` | Texto com polaridade **mista** (opcional, reforça portfólio). |
 | `sentiment-results.json` | Resposta estruturada (sem credenciais). |
 
-Prefixos alternativos se quiseres ordenação: `01-sentiment-positive.png`, `02-sentiment-negative.png`, etc.
+Prefixos alternativos se quiser ordenação: `01-sentiment-positive.png`, `02-sentiment-negative.png`, etc.
 
 ## Nota sobre a DIO
 
 O enunciado permite uma pasta **`/images`** no repositório; neste monorepo a função equivalente é **`output/`**, referenciada no [README principal do lab](../README.md).
 
-Quando adicionares ficheiros, atualiza a tabela de evidências no `README.md` do lab (marca “concluído” ou linka cada ficheiro).
+Ao adicionar arquivos, atualize a tabela de evidências no `README.md` do lab (marque “concluído” ou inclua o link para cada arquivo).

@@ -19,8 +19,8 @@ Guia desde o **recurso Azure** até guardar evidências em [`output/`](./output/
 
 1. [Portal Azure](https://portal.azure.com) → **Criar um recurso**.
 2. Pesquisar por **Language** / **Azure AI Language Service** ou recurso **Azure AI services** (multi-serviço) conforme o curso.
-3. Definir **subscrição**, **resource group** (podes reutilizar um RG dos labs anteriores ou criar um para serviços de linguagem), **região**, **nome** e **escalão de preços** (gratuito/F0 se disponível para testes; caso contrário S0 — atenção a custos).
-4. **Rever + criar** → aguardar **Implementação concluída**.
+3. Definir **assinatura**, **resource group** (você pode reutilizar um RG dos labs anteriores ou criar um para serviços de linguagem), **região**, **nome** e **camada de preços** (gratuito/F0 se disponível para testes; caso contrário S0 — atenção a custos).
+4. **Rever + criar** → aguardar **Implantação concluída**.
 5. Evidência opcional: captura da **Descrição geral** do recurso (sem abrir painel de chaves) → `output/resource-language-overview.png`.
 
 ---
@@ -28,7 +28,7 @@ Guia desde o **recurso Azure** até guardar evidências em [`output/`](./output/
 ## Fase 2 — Language Studio
 
 1. Abrir [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/).
-2. Iniciar sessão; selecionar **subscrição** e **recurso** criados.
+2. Iniciar sessão; selecionar **assinatura** e **recurso** criados.
 3. Localizar a funcionalidade de **análise de sentimentos** / **sentiment analysis** / **Analyze sentiment** (nome depende da versão e idioma da UI — seguir a trilha DIO).
 4. Captura opcional da página inicial com recurso ligado → `output/language-studio-home.png`.
 
@@ -37,22 +37,22 @@ Guia desde o **recurso Azure** até guardar evidências em [`output/`](./output/
 ## Fase 3 — Testes com texto em português
 
 1. Introduzir ou colar uma frase **positiva** (ex.: ver [README — exemplos](../README.md#frases-de-exemplo-português--pode-ajustar)).
-2. Executar a análise; guardar o ecrã com entrada + resultado → `output/sentiment-positive.png`.
+2. Executar a análise; guardar a tela com entrada + resultado → `output/sentiment-positive.png`.
 3. Repetir com frase **negativa** → `output/sentiment-negative.png`.
 4. Repetir com frase **neutra** → `output/sentiment-neutral.png`.
 5. Opcional: parágrafo com polaridades mistas → `output/sentiment-mixed.png`.
 6. Se a interface permitir **copiar JSON** ou resposta bruta (sem tokens), guardar → `output/sentiment-results.json`.
 
-**Dica:** mantém as frases visíveis no mesmo print que o resultado, para o revisor perceber o contexto.
+**Dica:** mantenha as frases visíveis no mesmo print que o resultado, para o revisor perceber o contexto.
 
 ---
 
 ## Fase 4 — Speech Studio (opcional / enunciado DIO)
 
-O desafio menciona também **Speech Studio**. Quando cobrires essa parte nas aulas:
+O desafio menciona também **Speech Studio**. Quando você cobrir essa parte nas aulas:
 
-1. Abre o [Speech Studio](https://speech.microsoft.com/portal) (ou URL atual no Learn).
-2. Documenta numa subsecção do [README](../README.md) ou acrescenta ficheiros em `output/` com prefixo `speech-` (ex.: `speech-studio-overview.png`).
+1. Abra o [Speech Studio](https://speech.microsoft.com/portal) (ou URL atual no Learn).
+2. Documente em uma subseção do [README](../README.md) ou acrescente arquivos em `output/` com prefixo `speech-` (ex.: `speech-studio-overview.png`).
 
 ---
 
@@ -68,6 +68,6 @@ O desafio menciona também **Speech Studio**. Quando cobrires essa parte nas aul
 
 | Situação | O que tentar |
 |----------|--------------|
-| Language Studio não lista o recurso | Confirma que a implementação terminou e que tens permissão (ex. *Contributor* no RG). |
-| Funcionalidade “cinzenta” ou indisponível | Verifica região do recurso e *SKU*; consulta a matriz de funcionalidades na documentação Microsoft. |
-| Resultado “neutro” inesperado | Texto muito curto, só factos, ou modelo conservador; experimenta frases mais explícitas e regista nos **Insights**. |
+| Language Studio não lista o recurso | Confirme que a implantação terminou e que você tem permissão (ex. *Contributor* no RG). |
+| Funcionalidade desativada (cinza) ou indisponível | Verifique a região do recurso e o *SKU*; consulte a matriz de funcionalidades na documentação Microsoft. |
+| Resultado “neutro” inesperado | Texto muito curto, só fatos, ou modelo conservador; experimente frases mais explícitas e registre nos **Insights**. |

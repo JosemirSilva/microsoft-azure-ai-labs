@@ -4,7 +4,7 @@ Coloque aqui as **imagens de entrada** utilizadas no laboratório.
 
 ## Direitos e uso
 
-As fotos nesta pasta foram **obtidas na internet** e são utilizadas **apenas para fins de estudo** no âmbito deste laboratório (reconhecimento facial, OCR e análise de imagem no Vision Studio). Não há intenção de uso comercial; os direitos sobre as imagens originais permanecem com os respetivos titulares.
+As fotos nesta pasta foram **obtidas na internet** e são utilizadas **apenas para fins de estudo** no âmbito deste laboratório (reconhecimento facial, OCR e análise de imagem no Vision Studio). Não há intenção de uso comercial; os direitos sobre as imagens originais permanecem com os respectivos titulares.
 
 ## Boas práticas
 

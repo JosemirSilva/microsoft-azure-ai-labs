@@ -8,35 +8,36 @@ Repositório único para os projetos práticos da trilha **[Microsoft - Fundamen
 |---|---------------|-------|--------|
 | 1 | [Trabalhando com Machine Learning na Prática no Azure ML](labs/azure-ml-automl-endpoint/README.md) | [`labs/azure-ml-automl-endpoint/`](labs/azure-ml-automl-endpoint/) | **Concluído** |
 | 2 | [Reconhecimento facial e imagens como dados (Vision Studio)](labs/azure-ml-face-images/README.md) | [`labs/azure-ml-face-images/`](labs/azure-ml-face-images/) | **Concluído** |
-| 3 | Análise de Sentimentos com Language Studio no Azure AI | _a criar_ | Não iniciado |
-| 4 | Azure Cognitive Search: Utilizando AI Search para indexação e consulta de Dados | _a criar_ | Não iniciado |
-| 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | _a criar_ | Não iniciado |
+| 3 | [Análise de sentimentos — Language Studio](labs/language-studio-sentiment/README.md) | [`labs/language-studio-sentiment/`](labs/language-studio-sentiment/) | **Concluído** |
+| 4 | Azure Cognitive Search: Utilizando AI Search para indexação e consulta de Dados | `labs/cognitive-search-ai/` | Não iniciado |
+| 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | `labs/generative-ai-copilot-openai/` | Não iniciado |
 
 Quando iniciares um novo projeto, cria **`labs/<nome-curto-do-projeto>/`** com o seu próprio `README.md`, artefatos e (se fizer sentido) `SDD.md`.
 
 ## Estrutura atual do repositório
 
 ```
-microsoft-ai-fundamentals/
-├── README.md                 ← este ficheiro (visão da trilha)
+microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-labs
+├── README.md
 ├── .gitignore
 ├── .env.example
 ├── docs/
-│   └── architecture.md       ← referência (ex.: projeto 1)
+│   └── architecture.md
 └── labs/
-    ├── azure-ml-automl-endpoint/   ← projeto 1 — AutoML + Online Endpoint
-    │   ├── README.md, SDD.md, HOWTO.md, endpoint.json, …
-    └── azure-ml-face-images/       ← projeto 2 — Vision Studio (inputs / output)
-        ├── README.md
-        ├── inputs/
-        ├── output/
-        └── assets/screenshots/
+    ├── azure-ml-automl-endpoint/    ← Lab 1
+    ├── azure-ml-face-images/      ← Lab 2
+    ├── language-studio-sentiment/   ← Lab 3 — Language Studio (sentimento)
+    │   ├── README.md, HOWTO.md
+    │   └── output/
+    ├── cognitive-search-ai/        ← Lab 4 (a criar)
+    └── generative-ai-copilot-openai/  ← Lab 5 (a criar)
 ```
 
 ## Entrega DIO
 
 - **Projeto 1:** README + [`endpoint.json`](labs/azure-ml-automl-endpoint/endpoint.json) — ver [lab 1](labs/azure-ml-automl-endpoint/README.md).
-- **Projeto 2:** pastas **`inputs`** e **`output`**, **README** com processo e insights — ver [lab 2](labs/azure-ml-face-images/README.md).
+- **Projeto 2:** pastas **`inputs`** e **`output`**, **README** — ver [lab 2](labs/azure-ml-face-images/README.md).
+- **Projeto 3:** **README** detalhado + artefactos (ex. **`output/`** com capturas) — ver [lab 3](labs/language-studio-sentiment/README.md).
 
 ## Publicar no GitHub (resumo)
 
@@ -63,4 +64,5 @@ microsoft-ai-fundamentals/
 ## Documentação por lab
 
 - [Lab 1 — Automated ML + Online Endpoint](labs/azure-ml-automl-endpoint/README.md) · [HOWTO](labs/azure-ml-automl-endpoint/HOWTO.md) · [SDD](labs/azure-ml-automl-endpoint/SDD.md)
-- [Lab 2 — Vision Studio (facial / OCR / análise)](labs/azure-ml-face-images/README.md) · [HOWTO passo a passo](labs/azure-ml-face-images/HOWTO.md)
+- [Lab 2 — Vision Studio (facial / OCR / análise)](labs/azure-ml-face-images/README.md) · [HOWTO](labs/azure-ml-face-images/HOWTO.md)
+- [Lab 3 — Language Studio (análise de sentimentos)](labs/language-studio-sentiment/README.md) · [HOWTO](labs/language-studio-sentiment/HOWTO.md) · [Guia em tela](labs/language-studio-sentiment/GUIA-PASSO-A-PASSO-TELA.md)

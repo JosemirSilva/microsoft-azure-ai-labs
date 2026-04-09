@@ -10,7 +10,7 @@ Repositório único para os projetos práticos da trilha **[Microsoft - Fundamen
 | 2 | [Reconhecimento facial e imagens como dados (Vision Studio)](labs/azure-ml-face-images/README.md) | [`labs/azure-ml-face-images/`](labs/azure-ml-face-images/) | **Concluído** |
 | 3 | [Análise de sentimentos — Language Studio](labs/language-studio-sentiment/README.md) | [`labs/language-studio-sentiment/`](labs/language-studio-sentiment/) | **Concluído** |
 | 4 | [Azure Cognitive Search — AI Search para indexação e consulta](labs/cognitive-search-ai/README.md) | [`labs/cognitive-search-ai/`](labs/cognitive-search-ai/) | **Concluído** |
-| 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | `labs/generative-ai-copilot-openai/` | Não iniciado |
+| 5 | [Explorando IA Generativa com Copilot e OpenAI](labs/generative-ai-copilot-openai/README.md) | [`labs/generative-ai-copilot-openai/`](labs/generative-ai-copilot-openai/) | **Concluído** |
 
 Ao iniciar um novo projeto, crie **`labs/<nome-curto-do-projeto>/`** com o seu próprio `README.md`, artefatos e (se fizer sentido) `SDD.md`.
 
@@ -23,6 +23,8 @@ Ao iniciar um novo projeto, crie **`labs/<nome-curto-do-projeto>/`** com o seu p
 | **Content Understanding Studio** | [https://contentunderstanding.ai.azure.com/](https://contentunderstanding.ai.azure.com/) | Experiências de compreensão de conteúdo multimodal; útil como extensão ao Lab 2 / documentação. |
 | **Language Studio** | [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/) | Texto e sentimento — **Lab 3**. Se o login abrir o *tenant* errado, use `?tenantid=` (ver [Lab 3 — acesso e tenant](labs/language-studio-sentiment/README.md#acesso-ao-language-studio-e-tenant-microsoft-entra-id)). |
 | **Azure AI Search** (portal do recurso) | [Portal Azure](https://portal.azure.com/) → recurso *Search* | Indexadores, índice e **Search Explorer** — **Lab 4** (geralmente após criar o serviço na sua assinatura). |
+| **Microsoft Copilot** | [https://copilot.microsoft.com/](https://copilot.microsoft.com/) | Geração assistida (texto, imagem, código) — **Lab 5**. |
+| **Azure OpenAI Studio** | [https://oai.azure.com/](https://oai.azure.com/) | *Playground*, modelos GPT, *content filters* — **Lab 5** (requer recurso Azure OpenAI na assinatura). |
 
 ## Estrutura atual do repositório
 
@@ -40,7 +42,10 @@ microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-lab
     │   ├── README.md, HOWTO.md
     │   └── output/
     ├── cognitive-search-ai/        ← Lab 4 — Azure AI Search
-    └── generative-ai-copilot-openai/  ← Lab 5 (a criar)
+    └── generative-ai-copilot-openai/  ← Lab 5 — Copilot + Azure OpenAI
+        ├── README.md, HOWTO.md
+        ├── prompts/
+        └── output/
 ```
 
 ## Entrega DIO
@@ -49,6 +54,7 @@ microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-lab
 - **Projeto 2:** pastas **`inputs`** e **`output`**, **README** — ver [lab 2](labs/azure-ml-face-images/README.md).
 - **Projeto 3:** **README** detalhado + artefatos (ex. **`output/`** com capturas) — ver [lab 3](labs/language-studio-sentiment/README.md).
 - **Projeto 4:** **README** + **HOWTO** + pasta **`output/`** com evidências — ver [lab 4](labs/cognitive-search-ai/README.md).
+- **Projeto 5:** **README** + **HOWTO** + pastas **`prompts/`** e **`output/`** — ver [lab 5](labs/generative-ai-copilot-openai/README.md).
 
 ## Publicar no GitHub (resumo)
 
@@ -78,3 +84,4 @@ microsoft-ai-fundamentals/   ← no GitHub pode chamar-se microsoft-azure-ai-lab
 - [Lab 2 — Vision Studio (facial / OCR / análise)](labs/azure-ml-face-images/README.md) · [HOWTO](labs/azure-ml-face-images/HOWTO.md)
 - [Lab 3 — Language Studio (análise de sentimentos)](labs/language-studio-sentiment/README.md) · [HOWTO](labs/language-studio-sentiment/HOWTO.md) · [Guia em tela](labs/language-studio-sentiment/GUIA-PASSO-A-PASSO-TELA.md)
 - [Lab 4 — Azure AI Search (indexação e consulta)](labs/cognitive-search-ai/README.md) · [HOWTO](labs/cognitive-search-ai/HOWTO.md)
+- [Lab 5 — IA Generativa (Copilot e Azure OpenAI)](labs/generative-ai-copilot-openai/README.md) · [HOWTO](labs/generative-ai-copilot-openai/HOWTO.md)

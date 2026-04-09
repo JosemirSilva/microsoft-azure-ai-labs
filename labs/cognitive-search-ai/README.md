@@ -22,15 +22,70 @@ Praticar o **Azure AI Search** para ingerir documentos não estruturados (avalia
 
 ## Arquitetura do lab
 
+Visão **macro** (componentes no *resource group* `rg-dio-aif-ml-dev-centralus`):
+
+```mermaid
+flowchart TB
+  subgraph origem["Origem"]
+    MOCK["Mock PT-BR\nlabs/.../data/review-*.txt"]
+  end
+
+  subgraph storage["Azure Storage"]
+    SA["Storage Account\nstdioaifmlcentralus01"]
+    BLOB[("Blob container\ncoffeereviews")]
+    SA --- BLOB
+  end
+
+  subgraph aisearch["Azure AI Search\nsearch-dio-aif-dev-centralus"]
+    DS["Data source\n(Blob + parsing Text)"]
+    SK["Skillset\ncognitive enrichment"]
+    ID["Indexer\n(search-177…-indexer)"]
+    IDX[("Search index\nsearch-1775701292472")]
+    DS --> ID
+    SK --> ID
+    ID --> IDX
+  end
+
+  subgraph enrich["Enriquecimento (IA)"]
+    COG["Foundry Tools / Cognitive\n(frases-chave, entidades)"]
+  end
+
+  subgraph consulta["Consulta"]
+    SE["Search Explorer\nqueryType: semantic · pt-br"]
+  end
+
+  MOCK -->|"Upload (Portal)"| BLOB
+  BLOB --> DS
+  SK <--> COG
+  IDX --> SE
 ```
-Azure Blob Storage (coffeereviews)
-        ↓  ingestão
-Azure AI Search — Indexador
-        ↓  enriquecimento
-Azure AI Services (skills cognitivas)
-        ↓  índice enriquecido
-Search Explorer (consultas)
+
+Fluxo **fim a fim** (sequência operacional):
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant Dev as Desenvolvedor
+  participant Blob as Blob Storage
+  participant Wiz as Assistente Import data
+  participant Idx as Indexador
+  participant AI as Serviços de IA
+  participant Ind as Índice
+  participant Exp as Search Explorer
+
+  Dev->>Blob: Carrega os 10 ficheiros .txt
+  Dev->>Wiz: Configura fonte, skillset, mapeamentos
+  Wiz->>Ind: Cria índice + indexador + skillset
+  Idx->>Blob: Lê blobs e extrai texto
+  Idx->>AI: Envia texto para skills (NER, frases)
+  AI-->>Idx: keyPhrases, persons, locations…
+  Idx->>Ind: Grava documentos enriquecidos
+  Dev->>Exp: Executa consultas JSON semânticas
+  Exp->>Ind: search / count / select
+  Ind-->>Dev: Resultados + @odata.count
 ```
+
+*Nota:* diagramas em Mermaid — no GitHub, visualizar o README renderizado. Para exportar imagem, use um [editor Mermaid](https://mermaid.live) ou extensão do VS Code.
 
 ---
 

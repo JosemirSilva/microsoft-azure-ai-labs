@@ -1,0 +1,3 @@
+# Linguist — corrigir detecção de linguagem no GitHub
+*.md linguist-documentation
+*.ps1 linguist-detectable=false

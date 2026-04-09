@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://www.dio.me/certificate/TSIXC0CD/share">
-    <img src="https://img.shields.io/badge/Certificado_DIO-Microsoft_Fundamentos_de_IA-blueviolet?style=for-the-badge&logo=microsoft&logoColor=white" alt="Certificado DIO — Microsoft Fundamentos de IA"/>
+    <img src="images/certificado-microsoft-fundamentos-ia.png" alt="Certificado DIO — Microsoft Fundamentos de IA" width="600"/>
   </a>
 </p>
 

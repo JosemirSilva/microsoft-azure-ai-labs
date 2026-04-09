@@ -1,0 +1,78 @@
+{
+  "description": "Exemplos de consultas semânticas — Azure AI Search (Lab 4). Sem chaves de API.",
+  "index": "search-1775701292472",
+  "semanticConfiguration": "search-1775701292472-semantic-configuration",
+  "queryLanguageDefault": "pt-br",
+  "examples": [
+    {
+      "name": "inventory-all-documents",
+      "description": "Todos os documentos; contagem 10; corpo e enriquecimento completos.",
+      "request": {
+        "search": "*",
+        "count": true,
+        "queryType": "semantic",
+        "semanticConfiguration": "search-1775701292472-semantic-configuration",
+        "captions": "extractive",
+        "answers": "extractive|count-3",
+        "queryLanguage": "pt-br"
+      },
+      "resultSummary": {
+        "@odata.count": 10,
+        "titlesInOrder": [
+          "review-001.txt",
+          "review-002.txt",
+          "review-003.txt",
+          "review-004.txt",
+          "review-005.txt",
+          "review-006.txt",
+          "review-007.txt",
+          "review-008.txt",
+          "review-009.txt",
+          "review-010.txt"
+        ]
+      }
+    },
+    {
+      "name": "search-term-atendimento",
+      "description": "Busca pelo termo 'atendimento' com projeção em campos enriquecidos.",
+      "request": {
+        "search": "atendimento",
+        "count": true,
+        "queryType": "semantic",
+        "semanticConfiguration": "search-1775701292472-semantic-configuration",
+        "select": "title, keyPhrases, locations, persons",
+        "captions": "extractive",
+        "queryLanguage": "pt-br"
+      },
+      "resultSummary": {
+        "@odata.count": 2,
+        "titlesRanked": [
+          "review-007.txt",
+          "review-002.txt"
+        ],
+        "notes": "review-007: atendimento abaixo do básico; review-002: atendimento excepcional."
+      }
+    },
+    {
+      "name": "natural-language-frustracao-fila",
+      "description": "Consulta multi-termo; ranqueamento semântico para reviews negativos / fila.",
+      "request": {
+        "search": "frustração fila demora",
+        "count": true,
+        "queryType": "semantic",
+        "semanticConfiguration": "search-1775701292472-semantic-configuration",
+        "select": "title, keyPhrases, locations",
+        "captions": "extractive",
+        "queryLanguage": "pt-br"
+      },
+      "resultSummary": {
+        "@odata.count": 3,
+        "titlesRanked": [
+          "review-007.txt",
+          "review-005.txt",
+          "review-010.txt"
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Lab 4 — Azure Cognitive Search: AI Search para indexação e consulta de dados
 
-**Estado:** **Em execução** — complete [`output/`](./output/), preencha **Insights** e marque o checklist antes de entregar na DIO.
+**Estado:** **Concluído** — evidências em [`output/`](./output/); falta apenas **push** no GitHub e **Entregar projeto** na DIO (se ainda não fez).
 
 **Projeto 4/5** da trilha [Microsoft — Fundamentos de IA](https://web.dio.me/track/microsoft-fundamentos-de-ia) · Desafio DIO: [Azure Cognitive Search: utilizando AI Search para indexação e consulta de dados](https://web.dio.me/lab/azure-cognitive-search-utilizando-ai-search-para-indexacao-e-consulta-de-dados/learning/719d6530-4d08-40c7-bb11-9524091868c0).
 
@@ -85,15 +85,19 @@ _Atualize a coluna **Estado** quando cada arquivo existir no repositório._
 | Arquivo sugerido | Conteúdo esperado | Estado |
 |------------------|-------------------|--------|
 | `resource-group-overview.png` | Portal — *resource group* `rg-dio-aif-ml-dev-centralus` listando **Search service**, **Storage account** e demais recursos do lab. | Feito |
-| `storage-container-upload.png` | Portal — contêiner `coffeereviews` **com** os arquivos de *review* carregados (`review-001.txt` … `review-010.txt`). | Feito |
-| `ai-search-resource-overview.png` | Visão geral do recurso Azure AI Search (endpoint, camada, região), sem chaves. | Feito |
-| `import-data-datasource.png` | Assistente **Import data** — etapa da fonte de dados (Blob). | Pendente |
-| `import-data-skillset.png` | Assistente — *skillset* cognitivo configurado. | Pendente |
-| `indexer-run-success.png` | Indexador concluído com sucesso (status, contagem, sem erros críticos). | Pendente |
-| `search-explorer-query-all.png` | Search Explorer — `search=*&$count=true` com JSON de resultado. | Pendente |
-| `search-explorer-query-filter.png` | Consulta com `$filter` (ex.: sentimento negativo ou localidade). | Pendente |
-| `search-explorer-query-term.png` | Busca por termo (ex.: cidade presente nas *reviews*). | Pendente |
-| `search-results.json` *(opcional)* | Cópia do JSON de uma consulta (sem credenciais). | Pendente |
+| `storage-container-upload.png` | Portal — contêiner `coffeereviews` **com** os arquivos de *review* carregados (`review-001.txt` … `review-010.txt`). | Guardado |
+| `ai-search-resource-overview.png` | Visão geral do recurso Azure AI Search (endpoint, camada, região), sem chaves. | Guardado |
+| `import-data-datasource.png` | **Import data** — *Connect to your data* (Blob `coffeereviews`, *parsing* Text, identidade gerenciada). | Guardado |
+| `import-data-skillset.png` | **Import data** — *Apply AI enrichments* (ex.: *Extract phrases*, *Extract entities*, recurso gratuito Foundry Tools). | Guardado |
+| `import-data-skillset-entities-modal.png` | Detalhe da habilidade *Extract entities* (Pessoas, Organizações, Localizações). | Feito |
+| `import-data-preview-mappings.png` | *Preview index fields* (`content`, `keyPhrases`, `persons`, `locations`, metadados do Blob). | Feito |
+| `import-data-advanced-settings.png` | *Advanced settings* (ex.: ranqueador semântico, agendamento *Once*). | Feito |
+| `import-data-review-create.png` | *Review and create* (resumo antes de **Create**; prefixo de objetos `search-1775701292472`). | Feito |
+| `indexer-run-success.png` | **Indexers** Índice executado com **Success**, **10/10** documentos, 0 erros. | Guardado |
+| `search-explorer-query-all.png` | Search Explorer — busca semântica `search=*`, `count`, idioma `en-us`, JSON com `@odata.count`: 10. | Guardado |
+| `search-explorer-query-filter.png` | Search Explorer — semântica, `queryLanguage` **pt-br**, `select` em `title`, `keyPhrases`, `locations`, `persons` (ex.: `review-007.txt`). | Guardado |
+| `search-explorer-query-term.png` | Search Explorer — semântica **pt-br**, `select` em `title`, `keyPhrases`, `locations` (mesmo índice, projeção distinta). | Guardado |
+| `search-results.json` | Cópia do JSON bruto de uma consulta (sem credenciais). | Opcional — não gerado |
 
 Convenções detalhadas: [`output/README.md`](./output/README.md).
 
@@ -101,16 +105,71 @@ Convenções detalhadas: [`output/README.md`](./output/README.md).
 
 ## Consultas úteis (Search Explorer)
 
-> Os nomes de campos (`sentiment`, `keyPhrases`, etc.) dependem do esquema gerado no assistente — ajuste conforme o seu índice.
+> No **JSON query editor**, use `queryType`: `"semantic"` e o `semanticConfiguration` gerado pelo assistente (`search-1775701292472-semantic-configuration`). Campos enriquecidos neste índice: `keyPhrases`, `persons`, `locations`, `organizations`. Índice: **`search-1775701292472`**.
+>
+> Cópia estruturada dos exemplos abaixo: [`output/search-query-examples.json`](./output/search-query-examples.json).
 
-| Objetivo | Consulta (exemplo) |
-|----------|-------------------|
-| Todos os documentos | `search=*&$count=true` |
-| *Reviews* negativas | `search=*&$filter=sentiment eq 'negative'` |
-| *Reviews* positivas | `search=*&$filter=sentiment eq 'positive'` |
-| Busca por cidade | `search=Curitiba&$count=true` |
-| Destacar frases-chave | `search=*&$select=keyphrases&$count=true` |
-| Ordenar por data de modificação | `search=*&$orderby=metadata_storage_last_modified desc` |
+### 1 — Inventário completo (10 documentos)
+
+**Objetivo:** retornar todos os *reviews* com `@odata.count: 10` e corpo completo (`content` + frases-chave e entidades por documento).
+
+```json
+{
+  "search": "*",
+  "count": true,
+  "queryType": "semantic",
+  "semanticConfiguration": "search-1775701292472-semantic-configuration",
+  "captions": "extractive",
+  "answers": "extractive|count-3",
+  "queryLanguage": "pt-br"
+}
+```
+
+**Resultado observado:** `@odata.count` **10**; ordem dos arquivos na resposta: `review-001.txt` … `review-010.txt`. Útil para validar ingestão e extração (ex.: “atendimento excepcional” em `review-002`, “Frustração” / “fila demorada” em `review-005` e `review-007`).
+
+### 2 — Busca por termo no texto (“atendimento”)
+
+**Objetivo:** localizar *reviews* que falam de atendimento; projetar só campos enriquecidos.
+
+```json
+{
+  "search": "atendimento",
+  "count": true,
+  "queryType": "semantic",
+  "semanticConfiguration": "search-1775701292472-semantic-configuration",
+  "select": "title, keyPhrases, locations, persons",
+  "captions": "extractive",
+  "queryLanguage": "pt-br"
+}
+```
+
+**Resultado observado:** `@odata.count` **2** — `review-007.txt` (atendimento abaixo do básico; maior `@search.rerankerScore` na prática do que o segundo) e `review-002.txt` (“atendimento excepcional”). `@search.captions` pode vir vazio dependendo do documento; os campos do `select` trazem o contexto.
+
+### 3 — Consulta em linguagem natural (frustração / fila / demora)
+
+**Objetivo:** combinar termos como numa pergunta; ranqueamento semântico prioriza *reviews* negativos relacionados.
+
+```json
+{
+  "search": "frustração fila demora",
+  "count": true,
+  "queryType": "semantic",
+  "semanticConfiguration": "search-1775701292472-semantic-configuration",
+  "select": "title, keyPhrases, locations",
+  "captions": "extractive",
+  "queryLanguage": "pt-br"
+}
+```
+
+**Resultado observado:** `@odata.count` **3** — ordem típica de relevância: `review-007.txt`, `review-005.txt`, `review-010.txt` (filas / frustração / experiência mista). Confirma que `keyPhrases` alinhadas (“Frustração”, “fila demorada”, “fila”) sustentam a busca semântica em PT-BR.
+
+### Outras ideias (API REST / sintaxe clássica)
+
+| Objetivo | Nota |
+|----------|------|
+| Busca por cidade no texto | `search`: `"Curitiba"` ou `"Brasília"` com o mesmo bloco semântico + `select` desejado |
+| OData `$filter` por polaridade | Só após incluir campo de sentimento no índice (*skill* ou campo derivado) |
+| Ordenação por data do Blob | `orderby=metadata_storage_last_modified desc` em consultas **simples** (`queryType` não semântico), se o campo estiver recuperável |
 
 ---
 
@@ -120,38 +179,86 @@ _Use esta lista como guia; marque no Git ou na DIO conforme for concluindo._
 
 ### Infraestrutura e dados
 
-- [ ] Video-aulas assistidas (conceitos: ingestão, índice, *skillset*, consulta).
+- [x] Video-aulas assistidas (conceitos: ingestão, índice, *skillset*, consulta).
 - [x] *Resource group* `rg-dio-aif-ml-dev-centralus` com **Search service** e **Storage** prontos — evidência: [`output/resource-group-overview.png`](./output/resource-group-overview.png).
 - [x] Recurso **Azure AI Search** `search-dio-aif-dev-centralus` criado (ex.: camada **Free**, **Central US**) — evidência: [`output/ai-search-resource-overview.png`](./output/ai-search-resource-overview.png).
 - [x] Arquivos de *mock* em [`data/`](./data/) enviados ao contêiner **`coffeereviews`** na conta **`stdioaifmlcentralus01`** — evidência: [`output/storage-container-upload.png`](./output/storage-container-upload.png).
-- [ ] Assistente **Import data** concluído (fonte Blob, índice, *skillset* com recurso cognitivo) — evidências: `import-data-datasource.png`, `import-data-skillset.png`.
+- [x] Assistente **Import data** concluído — evidências: [`import-data-datasource.png`](./output/import-data-datasource.png), [`import-data-skillset.png`](./output/import-data-skillset.png), [`import-data-preview-mappings.png`](./output/import-data-preview-mappings.png), [`import-data-advanced-settings.png`](./output/import-data-advanced-settings.png), [`import-data-review-create.png`](./output/import-data-review-create.png); detalhe de entidades: [`import-data-skillset-entities-modal.png`](./output/import-data-skillset-entities-modal.png).
 
 ### Indexação e consulta
 
-- [ ] **Indexador** executou com sucesso (documentos indexados, sem erros bloqueantes) — evidência: `indexer-run-success.png`.
-- [ ] **Search Explorer**: consulta ampla (`search=*&$count=true`) — evidência: `search-explorer-query-all.png`.
-- [ ] **Search Explorer**: pelo menos uma consulta com `$filter` ou busca por termo/cidade — evidências: `search-explorer-query-filter.png` e/ou `search-explorer-query-term.png`.
-- [ ] *(Opcional)* Anexar `search-results.json` (resposta de consulta, sem credenciais).
+- [x] **Indexador** executou com sucesso (**10/10** documentos) — [`output/indexer-run-success.png`](./output/indexer-run-success.png).
+- [x] **Search Explorer**: busca ampla com contagem — [`output/search-explorer-query-all.png`](./output/search-explorer-query-all.png).
+- [x] **Search Explorer**: consultas semânticas em **pt-br** com `select` em campos enriquecidos — [`output/search-explorer-query-filter.png`](./output/search-explorer-query-filter.png), [`output/search-explorer-query-term.png`](./output/search-explorer-query-term.png).
+- [x] Referência de consultas em [`output/search-query-examples.json`](./output/search-query-examples.json) *(opcional: exportar JSON bruto completo do Search Explorer para arquivo próprio)*.
 
 ### Documentação e entrega
 
-- [ ] Pasta **`output/`** com **pelo menos três** capturas alinhadas à tabela de evidências (ex.: *upload*, indexador, consulta); hoje há **3** (RG + overview do Search + *upload* no Blob).
-- [ ] Seção **Insights** (neste README) preenchida com aprendizados reais do lab.
-- [ ] `git add` / `commit` / `push` na raiz do repositório.
+- [x] Pasta **`output/`** com evidências do Blob, assistente **Import data**, indexador (**10/10**) e **Search Explorer** — ver tabela de evidências.
+- [x] Seção **Insights** (neste README) com aprendizados do pipeline — ajuste o texto se quiser personalizar a entrega.
+- [x] `git add` / `commit` / `push` na raiz do repositório.
 - [ ] **Entregar projeto** na DIO (link do GitHub + descrição).
 
 ---
 
 ## Insights e possibilidades
 
-_Preencha após os testes reais._
+### Resultados observados
 
-- **Enriquecimento cognitivo:** o que as *skills* extraíram automaticamente (frases-chave, sentimento, entidades, localizações).
-- **Qualidade do índice:** precisão das consultas, falsos positivos, campos mais úteis.
-- **$filter** vs. busca em texto completo: quando usar cada um.
-- **Escalabilidade:** diferenças entre camadas (*Free* vs. *Basic* vs. *Standard*) e impacto em volume e latência.
-- **Casos de uso:** e-commerce (*reviews*), RH (*currículos*), jurídico (contratos).
-- **Integração com labs anteriores:** AI Search (Lab 4) + Language Studio (Lab 3) + dados tabulares AutoML (Lab 1).
+- **Indexação 100% bem-sucedida:** todos os 10 documentos `.txt` foram
+  indexados sem erros, com extração automática de `keyPhrases`, `persons`,
+  `locations` e `organizations` via Azure AI Skills.
+
+- **Semantic Search supera busca léxica:** a configuração de Semantic Ranker
+  (redes neurais) retornou resultados relevantes mesmo sem correspondência
+  exata de termos — busca por "Frustração" retornou reviews negativas de
+  Brasília, Fortaleza e Manaus com scores de relevância distintos (3.98,
+  2.74 e 2.46).
+
+- **keyPhrases capturam contexto real:** o modelo extraiu automaticamente
+  termos como "preço abusivo", "fila demorada", "espuma rala", "quinze
+  minutos", "café coado artesanal" e "Hario V60" — frases que representam
+  a experiência do cliente sem nenhuma configuração manual.
+
+- **locations e persons funcionam como filtros naturais:** cidades como
+  Brasília, Fortaleza, Manaus, São Paulo e Fortaleza foram detectadas e
+  indexadas automaticamente, permitindo buscas geográficas sem campos
+  estruturados.
+
+- **Ranking semântico ordena por relevância real:** review-007.txt (score
+  3.98) foi a mais relevante para "Frustração" por concentrar mais termos
+  negativos; review-010.txt (score 2.46) é uma review mista — o ranker
+  a posicionou corretamente em terceiro.
+
+- **Managed Identity + RBAC:** a autenticação entre Azure AI Search e
+  Azure Blob Storage foi feita via Managed Identity com role
+  `Storage Blob Data Reader` — padrão recomendado para produção,
+  sem necessidade de expor connection strings.
+
+### Limitações identificadas
+
+- Busca por termos exatos como "insatisfeito" retornou 0 resultados quando
+  o texto usava sinônimos ("decepção", "frustração") — o Semantic Search
+  mitiga isso, mas não elimina completamente.
+- O tier Free limita a 50 MB de storage e 10.000 documentos — suficiente
+  para labs, inadequado para produção com grandes volumes.
+- `@search.captions` retornou vazio (`""`) nos testes — pode indicar que
+  os documentos `.txt` são curtos demais para geração de captions
+  extractivas significativas.
+
+### Casos de uso reais
+
+- **E-commerce:** indexar reviews de produtos e buscar por sentimento,
+  produto ou localidade sem estruturar os dados manualmente.
+- **RH:** indexar currículos e buscar por habilidades, cidades e
+  experiências específicas.
+- **Jurídico:** indexar contratos e localizar cláusulas por tema,
+  parte envolvida ou data.
+- **Suporte ao cliente:** indexar tickets e identificar padrões de
+  reclamação por região ou produto.
+- **Pipeline completo DIO:** AI Search (Lab 4) + Language Studio
+  sentimento (Lab 3) + AutoML (Lab 1) formam um pipeline de
+  inteligência end-to-end sobre dados não estruturados.
 
 ---
 

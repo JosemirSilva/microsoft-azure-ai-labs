@@ -67,7 +67,7 @@ Dentro do recurso Azure AI Search:
 ## Fase 5 — Explorar no Search Explorer
 
 1. No menu lateral, abra **Search Explorer**.
-2. Execute as consultas da tabela no [README.md](./README.md).
+2. Execute as consultas documentadas no [README.md](./README.md) (três exemplos semânticos em PT-BR) ou copie os *payloads* de [`output/search-query-examples.json`](./output/search-query-examples.json).
 3. Opcional: copie o JSON da resposta para evidência (`search-results.json`).
 
 > Capturas de tela sugeridas: `search-explorer-query-all.png`, `search-explorer-query-filter.png`, `search-explorer-query-term.png`

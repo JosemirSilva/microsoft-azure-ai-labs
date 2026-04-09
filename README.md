@@ -9,7 +9,7 @@ Repositório único para os projetos práticos da trilha **[Microsoft - Fundamen
 | 1 | [Trabalhando com Machine Learning na Prática no Azure ML](labs/azure-ml-automl-endpoint/README.md) | [`labs/azure-ml-automl-endpoint/`](labs/azure-ml-automl-endpoint/) | **Concluído** |
 | 2 | [Reconhecimento facial e imagens como dados (Vision Studio)](labs/azure-ml-face-images/README.md) | [`labs/azure-ml-face-images/`](labs/azure-ml-face-images/) | **Concluído** |
 | 3 | [Análise de sentimentos — Language Studio](labs/language-studio-sentiment/README.md) | [`labs/language-studio-sentiment/`](labs/language-studio-sentiment/) | **Concluído** |
-| 4 | [Azure Cognitive Search — AI Search para indexação e consulta](labs/cognitive-search-ai/README.md) | [`labs/cognitive-search-ai/`](labs/cognitive-search-ai/) | **Em execução** |
+| 4 | [Azure Cognitive Search — AI Search para indexação e consulta](labs/cognitive-search-ai/README.md) | [`labs/cognitive-search-ai/`](labs/cognitive-search-ai/) | **Concluído** |
 | 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | `labs/generative-ai-copilot-openai/` | Não iniciado |
 
 Ao iniciar um novo projeto, crie **`labs/<nome-curto-do-projeto>/`** com o seu próprio `README.md`, artefatos e (se fizer sentido) `SDD.md`.

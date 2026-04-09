@@ -56,8 +56,9 @@ Explorar **detecção de rostos**, **leitura de texto (OCR)** e **metadados deri
 
 ## Pré-requisitos e links
 
-- [Vision Studio](https://portal.vision.cognitive.azure.com/)
-- [Document Intelligence Studio](https://documentintelligence.ai.azure.com/) (conforme portal atual)
+- [Vision Studio](https://portal.vision.cognitive.azure.com/) — demos de visão (rostos, OCR na experiência *Read*, análise de imagem).
+- [Document Intelligence Studio](https://documentintelligence.ai.azure.com/) (conforme portal atual).
+- [Content Understanding Studio](https://contentunderstanding.ai.azure.com/) — compreensão de conteúdo (opcional; complementa cenários multimodais além do Vision / Document Intelligence).
 - [Azure AI Vision — documentação](https://learn.microsoft.com/azure/ai-services/computer-vision/)
 
 ---

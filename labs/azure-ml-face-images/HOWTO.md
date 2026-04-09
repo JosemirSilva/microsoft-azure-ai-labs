@@ -5,6 +5,7 @@ Guia prático desde o **provisionamento em Azure** até fechar a entrega com **e
 **Links oficiais**
 
 - [Vision Studio](https://portal.vision.cognitive.azure.com/)
+- [Content Understanding Studio](https://contentunderstanding.ai.azure.com/) (opcional)
 - [Azure AI Vision — documentação](https://learn.microsoft.com/azure/ai-services/computer-vision/)
 - No Learn, pesquise por: **Detect faces in Vision Studio**, **Read text in Vision Studio**, **Analyze images in Vision Studio**.
 

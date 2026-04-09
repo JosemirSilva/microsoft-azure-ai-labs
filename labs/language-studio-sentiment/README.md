@@ -47,6 +47,15 @@ Conforme o enunciado:
 
 **Segurança:** não commits de **chaves** de API, tokens nem capturas com painel "Keys" em foco.
 
+### Acesso ao Language Studio e tenant (Microsoft Entra ID)
+
+- URL padrão: [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/)
+- **Problema comum:** o browser associa a sessão ao *tenant* errado (conta corporativa vs. pessoal, ou vários diretórios). **Solução:** abra o Language Studio com o **ID do tenant** (diretório) correto na query string:
+
+  `https://language.cognitive.azure.com/?tenantid=SEU_TENANT_ID`
+
+  Substitua `SEU_TENANT_ID` pelo **Directory (tenant) ID** do Microsoft Entra ID: no [Portal Azure](https://portal.azure.com) → pesquise por **Microsoft Entra ID** → **Propriedades** (ou **Overview**) → copie **Tenant ID**. Não commite esse valor em repositórios públicos se considerar sensível; use-o só na URL localmente.
+
 ---
 
 ## Passo a passo resumido (o que fazer)

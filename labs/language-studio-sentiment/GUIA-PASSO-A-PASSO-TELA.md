@@ -18,7 +18,7 @@ Use este arquivo como **roteiro linear** no browser. Os nomes exatos dos botões
 
 ## Parte B — Entrar no Language Studio
 
-1. Abra uma janela anônima ou normal e vá a **[https://language.cognitive.azure.com/](https://language.cognitive.azure.com/)**.
+1. Abra uma janela anônima ou normal e vá a **[https://language.cognitive.azure.com/](https://language.cognitive.azure.com/)**. Se o login usar o *tenant* (diretório) errado, abra `https://language.cognitive.azure.com/?tenantid=SEU_TENANT_ID`, substituindo `SEU_TENANT_ID` pelo **Directory (tenant) ID** em [Portal Azure](https://portal.azure.com) → **Microsoft Entra ID** → **Propriedades** (também descrito na documentação [Microsoft Entra ID — localizar tenant](https://learn.microsoft.com/azure/active-directory/fundamentals/how-to-find-tenant)).
 2. Clique em **Iniciar sessão** / **Sign in** e use a **mesma conta** da assinatura Azure onde está o recurso.
 3. Se aparecer **termos de utilização** ou confirmação de processamento de dados, leia e aceite se concordar (requisito para usar a demo).
 

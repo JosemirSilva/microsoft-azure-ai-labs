@@ -12,7 +12,16 @@ Repositório único para os projetos práticos da trilha **[Microsoft - Fundamen
 | 4 | Azure Cognitive Search: Utilizando AI Search para indexação e consulta de Dados | `labs/cognitive-search-ai/` | Não iniciado |
 | 5 | Explorando os Recursos de IA Generativa com Copilot e OpenAI | `labs/generative-ai-copilot-openai/` | Não iniciado |
 
-Quando iniciares um novo projeto, cria **`labs/<nome-curto-do-projeto>/`** com o seu próprio `README.md`, artefatos e (se fizer sentido) `SDD.md`.
+Ao iniciar um novo projeto, crie **`labs/<nome-curto-do-projeto>/`** com o seu próprio `README.md`, artefatos e (se fizer sentido) `SDD.md`.
+
+## Portais e estúdios Azure AI (referência rápida)
+
+| Portal | URL | Uso típico nos labs |
+|--------|-----|---------------------|
+| **Microsoft Foundry** | [https://ai.azure.com/](https://ai.azure.com/) | Visão integrada de projetos, modelos e ferramentas de IA no Azure (complementar ao ML Studio no Lab 1). |
+| **Vision Studio** | [https://portal.vision.cognitive.azure.com/](https://portal.vision.cognitive.azure.com/) | Demos de visão (rostos, OCR em imagens, etc.) — **Lab 2**. |
+| **Content Understanding Studio** | [https://contentunderstanding.ai.azure.com/](https://contentunderstanding.ai.azure.com/) | Experiências de compreensão de conteúdo multimodal; útil como extensão ao Lab 2 / documentação. |
+| **Language Studio** | [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/) | Texto e sentimento — **Lab 3**. Se o login abrir o *tenant* errado, use `?tenantid=` (ver [Lab 3 — acesso e tenant](labs/language-studio-sentiment/README.md#acesso-ao-language-studio-e-tenant-microsoft-entra-id)). |
 
 ## Estrutura atual do repositório
 

@@ -9,6 +9,8 @@ Treinar um modelo com **Automated ML** no Azure Machine Learning, registar o mel
 - Documento de design: [SDD.md](./SDD.md)
 - Passo a passo detalhado e recursos usados: [HOWTO.md](./HOWTO.md)
 
+**Portal relacionado:** [Microsoft Foundry](https://ai.azure.com/) — entrada para projetos e capacidades de IA no Azure (além do **Azure Machine Learning Studio** usado neste lab).
+
 ## Arquitetura do fluxo
 
 Descrição textual e tabela de componentes: **[docs/architecture.md](../../docs/architecture.md)**.

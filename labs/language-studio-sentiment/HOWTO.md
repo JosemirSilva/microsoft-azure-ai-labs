@@ -4,7 +4,7 @@ Guia desde o **recurso Azure** até guardar evidências em [`output/`](./output/
 
 **Links úteis**
 
-- [Language Studio](https://language.cognitive.azure.com/)
+- [Language Studio](https://language.cognitive.azure.com/) — se o tenant estiver incorreto, use `https://language.cognitive.azure.com/?tenantid=SEU_TENANT_ID` (Tenant ID em **Microsoft Entra ID** no [Portal Azure](https://portal.azure.com)).
 - [Analyze text with Language Studio (Learn)](https://learn.microsoft.com/training/modules/analyze-text-with-language-studio/)
 - [Documentação — Azure AI Language](https://learn.microsoft.com/azure/ai-services/language-service/)
 
@@ -71,3 +71,4 @@ O desafio menciona também **Speech Studio**. Quando você cobrir essa parte nas
 | Language Studio não lista o recurso | Confirme que a implantação terminou e que você tem permissão (ex. *Contributor* no RG). |
 | Funcionalidade desativada (cinza) ou indisponível | Verifique a região do recurso e o *SKU*; consulte a matriz de funcionalidades na documentação Microsoft. |
 | Resultado “neutro” inesperado | Texto muito curto, só fatos, ou modelo conservador; experimente frases mais explícitas e registre nos **Insights**. |
+| Conta / assinatura corretos, mas o Studio não lista o recurso ou abre “outra” organização | Tente abrir com tenant explícito: `https://language.cognitive.azure.com/?tenantid=<Directory_ID>` (veja o [README do lab](./README.md#acesso-ao-language-studio-e-tenant-microsoft-entra-id)). Limpe cache do browser ou use janela anônima após trocar de conta. |

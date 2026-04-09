@@ -55,7 +55,7 @@ Search Explorer (consultas)
 - **Resource group** `rg-dio-aif-ml-dev-centralus` com:
   - **Storage Account** `stdioaifmlcentralus01` + contêiner **`coffeereviews`** (já criado; faça o *upload* dos *reviews* conforme as aulas).
   - Recurso **Azure AI Services** multi-serviço `ai-dio-vision-dev-centralus` (necessário para *skills* cognitivas no assistente de importação).
-  - **Novo** recurso **Azure AI Search** a criar (veja [HOWTO.md](./HOWTO.md)).
+  - Recurso **Azure AI Search** `search-dio-aif-dev-centralus` (camada **Free**, região **Central US**) — ver evidência em [`output/ai-search-resource-overview.png`](./output/ai-search-resource-overview.png).
 - Navegador atualizado com acesso ao [Portal Azure](https://portal.azure.com).
 
 **Segurança:** não faça *commit* de chaves de API, *connection strings* nem capturas com o painel **Keys** visível.
@@ -84,15 +84,16 @@ _Atualize a coluna **Estado** quando cada arquivo existir no repositório._
 
 | Arquivo sugerido | Conteúdo esperado | Estado |
 |------------------|-------------------|--------|
-| `storage-container-upload.png` | Portal — contêiner `coffeereviews` **com** os arquivos de *review* carregados. | |
-| `ai-search-resource-overview.png` | Visão geral do recurso Azure AI Search (endpoint, camada, região), sem chaves. | |
-| `import-data-datasource.png` | Assistente **Import data** — etapa da fonte de dados (Blob). | |
-| `import-data-skillset.png` | Assistente — *skillset* cognitivo configurado. | |
-| `indexer-run-success.png` | Indexador concluído com sucesso (status, contagem, sem erros críticos). | |
-| `search-explorer-query-all.png` | Search Explorer — `search=*&$count=true` com JSON de resultado. | |
-| `search-explorer-query-filter.png` | Consulta com `$filter` (ex.: sentimento negativo ou localidade). | |
-| `search-explorer-query-term.png` | Busca por termo (ex.: cidade presente nas *reviews*). | |
-| `search-results.json` *(opcional)* | Cópia do JSON de uma consulta (sem credenciais). | |
+| `resource-group-overview.png` | Portal — *resource group* `rg-dio-aif-ml-dev-centralus` listando **Search service**, **Storage account** e demais recursos do lab. | Feito |
+| `storage-container-upload.png` | Portal — contêiner `coffeereviews` **com** os arquivos de *review* carregados (`review-001.txt` … `review-010.txt`). | Feito |
+| `ai-search-resource-overview.png` | Visão geral do recurso Azure AI Search (endpoint, camada, região), sem chaves. | Feito |
+| `import-data-datasource.png` | Assistente **Import data** — etapa da fonte de dados (Blob). | Pendente |
+| `import-data-skillset.png` | Assistente — *skillset* cognitivo configurado. | Pendente |
+| `indexer-run-success.png` | Indexador concluído com sucesso (status, contagem, sem erros críticos). | Pendente |
+| `search-explorer-query-all.png` | Search Explorer — `search=*&$count=true` com JSON de resultado. | Pendente |
+| `search-explorer-query-filter.png` | Consulta com `$filter` (ex.: sentimento negativo ou localidade). | Pendente |
+| `search-explorer-query-term.png` | Busca por termo (ex.: cidade presente nas *reviews*). | Pendente |
+| `search-results.json` *(opcional)* | Cópia do JSON de uma consulta (sem credenciais). | Pendente |
 
 Convenções detalhadas: [`output/README.md`](./output/README.md).
 
@@ -107,7 +108,7 @@ Convenções detalhadas: [`output/README.md`](./output/README.md).
 | Todos os documentos | `search=*&$count=true` |
 | *Reviews* negativas | `search=*&$filter=sentiment eq 'negative'` |
 | *Reviews* positivas | `search=*&$filter=sentiment eq 'positive'` |
-| Busca por cidade | `search=Chicago&$count=true` |
+| Busca por cidade | `search=Curitiba&$count=true` |
 | Destacar frases-chave | `search=*&$select=keyphrases&$count=true` |
 | Ordenar por data de modificação | `search=*&$orderby=metadata_storage_last_modified desc` |
 
@@ -115,14 +116,29 @@ Convenções detalhadas: [`output/README.md`](./output/README.md).
 
 ## Checklist de entrega (DIO)
 
-- [ ] Video-aulas assistidas.
-- [ ] Recurso **Azure AI Search** criado e configurado.
-- [ ] *Upload* dos documentos no contêiner `coffeereviews`.
-- [ ] Indexador executado com sucesso (sem erros críticos).
-- [ ] Consultas realizadas no Search Explorer.
-- [ ] Pasta **`output/`** com **pelo menos três** evidências (*upload*, indexador, consulta).
-- [ ] **`README.md`** com **Insights** preenchidos.
-- [ ] Repositório atualizado no GitHub; **Entregar projeto** na DIO.
+_Use esta lista como guia; marque no Git ou na DIO conforme for concluindo._
+
+### Infraestrutura e dados
+
+- [ ] Video-aulas assistidas (conceitos: ingestão, índice, *skillset*, consulta).
+- [x] *Resource group* `rg-dio-aif-ml-dev-centralus` com **Search service** e **Storage** prontos — evidência: [`output/resource-group-overview.png`](./output/resource-group-overview.png).
+- [x] Recurso **Azure AI Search** `search-dio-aif-dev-centralus` criado (ex.: camada **Free**, **Central US**) — evidência: [`output/ai-search-resource-overview.png`](./output/ai-search-resource-overview.png).
+- [x] Arquivos de *mock* em [`data/`](./data/) enviados ao contêiner **`coffeereviews`** na conta **`stdioaifmlcentralus01`** — evidência: [`output/storage-container-upload.png`](./output/storage-container-upload.png).
+- [ ] Assistente **Import data** concluído (fonte Blob, índice, *skillset* com recurso cognitivo) — evidências: `import-data-datasource.png`, `import-data-skillset.png`.
+
+### Indexação e consulta
+
+- [ ] **Indexador** executou com sucesso (documentos indexados, sem erros bloqueantes) — evidência: `indexer-run-success.png`.
+- [ ] **Search Explorer**: consulta ampla (`search=*&$count=true`) — evidência: `search-explorer-query-all.png`.
+- [ ] **Search Explorer**: pelo menos uma consulta com `$filter` ou busca por termo/cidade — evidências: `search-explorer-query-filter.png` e/ou `search-explorer-query-term.png`.
+- [ ] *(Opcional)* Anexar `search-results.json` (resposta de consulta, sem credenciais).
+
+### Documentação e entrega
+
+- [ ] Pasta **`output/`** com **pelo menos três** capturas alinhadas à tabela de evidências (ex.: *upload*, indexador, consulta); hoje há **3** (RG + overview do Search + *upload* no Blob).
+- [ ] Seção **Insights** (neste README) preenchida com aprendizados reais do lab.
+- [ ] `git add` / `commit` / `push` na raiz do repositório.
+- [ ] **Entregar projeto** na DIO (link do GitHub + descrição).
 
 ---
 

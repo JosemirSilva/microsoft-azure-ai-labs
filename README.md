@@ -1,5 +1,16 @@
 # Microsoft — Fundamentos de IA (DIO)
 
+<p align="center">
+  <a href="https://www.dio.me/certificate/TSIXC0CD/share">
+    <img src="https://img.shields.io/badge/Certificado_DIO-Microsoft_Fundamentos_de_IA-blueviolet?style=for-the-badge&logo=microsoft&logoColor=white" alt="Certificado DIO — Microsoft Fundamentos de IA"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong>Certificado:</strong>
+  <a href="https://www.dio.me/certificate/TSIXC0CD/share">ver credencial na DIO</a>
+</p>
+
 Repositório único para os projetos práticos da trilha **[Microsoft - Fundamentos de IA](https://web.dio.me/track/microsoft-fundamentos-de-ia)** na [Digital Innovation One (DIO)](https://www.dio.me/). Cada módulo do curso corresponde a uma **subpasta em `labs/`** — um só GitHub, histórico e portfólio centralizados.
 
 ## Progresso na trilha
